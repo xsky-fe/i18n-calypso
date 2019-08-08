@@ -32,6 +32,7 @@ module.exports = function(config) {
     parseOptions: {
       plugins: [
         'jsx',
+        'typescript',
         'classProperties',
         'objectRestSpread',
         'exportExtensions',
