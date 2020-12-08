@@ -40,6 +40,7 @@ module.exports = function(config) {
         'asyncFunctions',
         'decorators',
         'dynamicImport',
+        'optionalChaining',
       ],
       allowImportExportEverywhere: true,
     },
