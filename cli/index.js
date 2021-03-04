@@ -3,12 +3,12 @@
  */
 var fs = require('fs'),
   path = require('path'),
-  Xgettext = require('xgettext-js'),
+  Xgettext = require('xgettext-js-xsky'),
   preProcessXGettextJSMatch = require('./preprocess-xgettextjs-match.js'),
   formatters = require('./formatters'),
   debug = require('debug')('glotpress-js');
 
-module.exports = function(config) {
+module.exports = function (config) {
   var keywords, data, matches, parser, parserKeywords, formatter, textOutput;
 
   keywords = config.keywords || ['translate'];
@@ -21,7 +21,7 @@ module.exports = function(config) {
   parserKeywords = config.parserKeywords || {};
 
   if (keywords) {
-    parserKeywords = keywords.reduce(function(output, currentKeyword) {
+    parserKeywords = keywords.reduce(function (output, currentKeyword) {
       output[currentKeyword] = preProcessXGettextJSMatch;
       return output;
     }, parserKeywords);
@@ -47,13 +47,13 @@ module.exports = function(config) {
   });
 
   function getFileMatches(inputFiles) {
-    return inputFiles.map(function(inputFile) {
+    return inputFiles.map(function (inputFile) {
       var relativeInputFilePath = path
         .relative(__dirname, inputFile)
         .replace(/^[\/.]+/, '');
       return parser
         .getMatches(fs.readFileSync(inputFile, 'utf8'))
-        .map(function(match) {
+        .map(function (match) {
           match.line = relativeInputFilePath + ':' + match.line;
           return match;
         });
@@ -63,7 +63,7 @@ module.exports = function(config) {
   if (config.data) {
     // If data is provided, feed it directly to the parser and call the file <unknown>
     matches = [
-      parser.getMatches(data).map(function(match) {
+      parser.getMatches(data).map(function (match) {
         match.location = '<unknown>:' + match.line;
         return match;
       }),
@@ -75,7 +75,7 @@ module.exports = function(config) {
   if (config.extras) {
     matches = matches.concat(
       getFileMatches(
-        config.extras.map(function(extra) {
+        config.extras.map(function (extra) {
           return path.join(__dirname, 'extras', extra + '.js');
         })
       )

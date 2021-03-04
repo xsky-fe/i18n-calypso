@@ -1,11 +1,11 @@
 {
-  "name": "i18n-calypso",
+  "name": "i18n-calypso-wizard",
   "version": "1.9.1",
   "description": "i18n JavaScript library on top of Jed originally used in Calypso",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Automattic/i18n-calypso.git"
+    "url": "git+https://github.com/xsky-fe/i18n-calypso.git"
   },
   "author": "@automattic",
   "license": "GPL-2.0",
@@ -18,7 +18,7 @@
   "scripts": {
     "test": "mocha --recursive"
   },
-  "homepage": "https://github.com/Automattic/i18n-calypso#readme",
+  "homepage": "https://github.com/xsky-fe/i18n-calypso#readme",
   "dependencies": {
     "async": "^1.5.2",
     "commander": "^2.9.0",
@@ -34,7 +34,7 @@
     "moment-timezone": "0.5.11",
     "react": "0.14.8 || ^15.5.0 || ^16.0.0",
     "sha1": "^1.1.1",
-    "xgettext-js": "git+https://github.com/xsky-fe/xgettext-js.git"
+    "xgettext-js-xsky": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
